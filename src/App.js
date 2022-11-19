@@ -1,8 +1,9 @@
 import "./App.css";
-import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react";
+import { BankOffers } from "./components/BankOffers";
 
 function App() {
-  return <Button variant="primary">hello</Button>;
+  return <BankOffers />;
 }
 
 export default App;
