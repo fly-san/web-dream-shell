@@ -1,4 +1,5 @@
 import { House } from "react-bootstrap-icons";
+import { FaChevronLeft } from "react-icons/fa";
 import { HouseCard } from "./HouseCard";
 import { BankOffers } from "./BankOffers";
 
@@ -7,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import data from "../assets/house.json";
 import { HouseContext } from "../App";
+import { Container } from "react-bootstrap";
 
 export function HouseSearch() {
   //const [isLoading, setIsLoading] = useState(true);

@@ -4,8 +4,9 @@ import { SingleBankOffer } from "./SingleBankOffer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { InterestPlanContext } from "../App";
+import { MagnifyingGlass } from "react-loader-spinner";
 
-export function BankOffers() {
+export function BankOffers(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [offers, setOffers] = useState([]);
   const interestPlanContext = useContext(InterestPlanContext);
@@ -72,11 +73,18 @@ export function BankOffers() {
     }
   }, []);
 
-  if (isLoading) {
-    return <>Loading...</>;
-  }
-
-  return (
+  return isLoading ? (
+    <MagnifyingGlass
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="MagnifyingGlass-loading"
+      wrapperStyle={{}}
+      wrapperClass="MagnifyingGlass-wrapper"
+      glassColor="#c0efff"
+      color="#4fa94d"
+    />
+  ) : (
     <Row className="justify-content-md-center">
       {offers.map((item) => (
         <Col>

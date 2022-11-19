@@ -5,10 +5,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useContext } from "react";
 import { EquityContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export function HomePage(props) {
   const equityContext = useContext(EquityContext);
-
+  const navigate = useNavigate();
   return (
     <div>
       <Container>
@@ -100,7 +101,13 @@ export function HomePage(props) {
 
         <Row>
           <Col md={{ span: 4, offset: 10 }}>
-            <Button variant="dark" type="submit">
+            <Button
+              variant="dark"
+              type="submit"
+              onClick={() => {
+                navigate("/offers");
+              }}
+            >
               Next Step
             </Button>
           </Col>
