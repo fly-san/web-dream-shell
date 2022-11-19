@@ -1,14 +1,253 @@
 {
   "houses":[
+
     {
-      "houseId":100,
-      "name": "Small beat balabal",
-      "address": "xxxx str.12",
+      "houseId":101,
+      "name": "MAX HOEFE - New building at Superdense 50",
+      "address": "Tuerkenstr. 50 80799 Munich",
+      "zip": "80799",
+      "city": "Munich",
+      "type": "appartment",
+      "room": 4,
       "bedroom": 2,
       "bathroom":1,
-      "size":70,
-      "tag":["Near Subways","Park"],
-      "price":632100
-    } 
+      "size":44,
+      "tag":["City Center","Garden"],
+      "price":955000
+    },
+
+    {
+      "houseId":102,
+      "name": "Best location Schwabing",
+      "address": "Neuschwabing, 80796 Munich",
+      "zip": "80796",
+      "city": "Munich",
+      "type": "house",
+      "room": 5,
+      "bedroom": 3,
+      "bathroom":1,
+      "size":131,
+      "tag":["City Center","Garden"],
+      "price":1800000
+    },
+
+    {
+      "houseId":103,
+      "name": "Newly renovated 2-room apartment with a view and balcony to the quiet inner courtyard in Maxvorstadt",
+      "address": "Neuschwabing, 80798 Munich",
+      "zip": "80798",
+      "city": "Munich",
+      "type": "appartment",
+      "room": 2,
+      "bedroom": 1,
+      "bathroom":1,
+      "size":60,
+      "tag":["City Center","Quiet"],
+      "price": 500000
+    },
+
+    {
+      "houseId":105,
+      "name": "Charming duplex",
+      "address": "Englischer Garten, 80538 Munich",
+      "zip": "80538",
+      "city": "Munich",
+      "type": "appartment",
+      "room": 3,
+      "bedroom": 2,
+      "bathroom":1,
+      "size":80,
+      "tag":["Garden","Quiet"],
+      "price": 1085000
+    },
+
+    {
+      "houseId":106,
+      "name": "MUNICH IG",
+      "address": "Harlaching, 81545 Munich",
+      "zip": "81545",
+      "city": "Munich",
+      "type": "house",
+      "room": 7,
+      "bedroom": 6,
+      "bathroom":2,
+      "size":254,
+      "tag":["Garden"],
+      "price": 1085000
+    },
+
+    {
+      "houseId":107,
+      "name": "Exclusively in a prominent location in Ismaning",
+      "address": "Ismaning, 85737 Munich",
+      "zip": "85737",
+      "city": "Munich",
+      "type": "house",
+      "room": 5,
+      "bedroom": 3,
+      "bathroom":3,
+      "size":155,
+      "tag":["Garden", "Safe"],
+      "price": 2049000
+    },
+
+    {
+      "houseId":108,
+      "name": "Sunny, spacious DHH with a large carport in a wonderful, quiet SW location in Hohenbrunn",
+      "address": "Brunnengasse 40, 85662 Munich",
+      "zip": "85662",
+      "city": "Munich",
+      "type": "house",
+      "room": 5,
+      "bedroom": 3,
+      "bathroom":52,
+      "size":145,
+      "tag":["Quiet", "Safe"],
+      "price": 910000
+    },
+
+    {
+      "houseId":201,
+      "name": "Large and bright apartment with 5-6 rooms, two bathrooms in a quiet north-facing location",
+      "address": "Nordend-West, 60318 Frankfurt am Main",
+      "bedroom": 2,
+      "bathroom":1,
+      "room":5,
+      "zip":"60318",
+      "city":"Frankfurt",
+      "type":"apartment",
+      "size":138,
+      "tag":["Basement","Keller"],
+      "price":795000
+    },
+    {
+      "houseId":202,
+      "name": "Charming roof studio with sunny roof terrace in the north end",
+      "address": "Nordend-West, 60318 Frankfurt am Main",
+      "bedroom": 1,
+      "bathroom":1,
+      "room":2,
+      "zip":"60318",
+      "city":"Frankfurt",
+      "type":"apartment",
+      "size":46,
+      "tag":["Basement","Balcony"],
+      "price":289000
+    },
+    {
+      "houseId":203,
+      "name": "Modern penthouse apartment with roof terrace",
+      "address": "Hausen, Frankfurt am Main",
+      "bedroom": 1,
+      "bathroom":1,
+      "room":2,
+      "zip":"60488",
+      "city":"Frankfurt",
+      "type":"apartment",
+      "size":71.47,
+      "tag":["First occupancy","Underfloor heating"],
+      "price":536025
+    },
+    {
+      "houseId":204,
+      "name": "FUCHSTANZ - LIVING BY THE WINDOW TO THE TAUNUS",
+      "address": "Lorscher Strasse 40, 60489 Frankfurt am Main",
+      "bedroom": 1,
+      "bathroom":1,
+      "room":2,
+      "zip":"60489",
+      "city":"Frankfurt",
+      "type":"apartment",
+      "size":40.92,
+      "tag":["Quiet","In a green oasis"],
+      "price":309000
+    },
+    {
+      "houseId":205,
+      "name": "Property instead of rent: Comfortable 3-room new apartment with a view of the countryside!",
+      "address": "Kleyerstr. 82, Gallus, 60326 Frankfurt am Main",
+      "bedroom": 2,
+      "bathroom":1,
+      "room":3,
+      "zip":"60326",
+      "city":"Frankfurt",
+      "type":"apartment",
+      "size":73.96,
+      "tag":["Stepless access Commission","Passenger lift"],
+      "price":624900
+    },
+    {
+      "houseId":206,
+      "name": "Finally room for the whole family! Your own home in Riedberg: spacious and modern",
+      "address": "Kalbach-Riedberg, 60437 Frankfurt am Main",
+      "bedroom":4,
+      "bathroom":2,
+      "room":5,
+      "zip":"60437",
+      "city":"Frankfurt",
+      "type":"house",
+      "size":136,
+      "tag":["District heating","Southeast terrace"],
+      "price":1200000
+    },
+    {
+      "houseId":207,
+      "name": "Single-family house in Sachsenhausen in need of renovation",
+      "address": "Sachsenhausen-Süd, 60599 Frankfurt am Main",
+      "bedroom":4,
+      "bathroom":3,
+      "room":7,
+      "zip":"60599",
+      "city":"Frankfurt",
+      "type":"house",
+      "size":192,
+      "tag":["Large garden","Underfloor heating"],
+      "price":1550000
+    },
+    {
+      "houseId":208,
+      "name": "SkyView Villas - Lifestyle villas in the countryside",
+      "address": "Kalbach-Riedberg, 60437 Frankfurt am Main",
+      "bedroom":4,
+      "bathroom":2,
+      "room":5,
+      "zip":"60437",
+      "city":"Frankfurt",
+      "type":"house",
+      "size":191,
+      "tag":["Large garden","Central heating"],
+      "price":1850000
+    },
+    {
+      "houseId":209,
+      "name": "First occupancy: Energy A+ house with garden bungalow",
+      "address": "Ginnheim, 60431 Frankfurt am Main",
+      "bedroom":4,
+      "bathroom":3,
+      "room":7,
+      "zip":"60431",
+      "city":"Frankfurt",
+      "type":"house",
+      "size":202,
+      "tag":["2 parking spaces","Quiet"],
+      "price":2250000
+    },
+    {
+      "houseId":210,
+      "name": "NEW CONSTRUCTION Semi-detached house 174m2 living space",
+      "address": "Rödelheim, 60489 Frankfurt am Main",
+      "bedroom":4,
+      "bathroom":2,
+      "room":5,
+      "zip":"60489",
+      "city":"Frankfurt",
+      "type":"house",
+      "size":173.8,
+      "tag":["Spacious semi-detached","Underfloor heating"],
+      "price":1150000
+    }                
+
   ]
 }
+
+
