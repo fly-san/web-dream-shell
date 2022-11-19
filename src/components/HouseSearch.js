@@ -2,7 +2,7 @@ import { House } from "react-bootstrap-icons";
 import { HouseCard } from "./HouseCard";
 
 import { useEffect, useState } from "react";
-import data from "../../data/house/house.json"
+
 
 export function HouseSearch() {
     //const [isLoading, setIsLoading] = useState(true);

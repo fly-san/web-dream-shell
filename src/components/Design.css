@@ -1,0 +1,17 @@
+.brightness {
+    background-color: white;
+    display: inline-block;
+
+}
+.brightness img:hover {
+    /* opacity: .5; */
+    border-style:solid;
+    border-width:7px;
+    border-color:#39a77e;
+}
+
+.round{
+    float:right
+}
+  
+  
