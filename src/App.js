@@ -48,8 +48,9 @@ function App() {
           <Col style={{ padding: 0 }}>
             <Container fluid id="main-container">
               <Routes>
-                <Route path="/offers" element={<HouseSearch />} />
-                <Route path="/plans" element={<PlanSelection />} />
+                <Route path="/offers" element={<HouseSearch />}>
+                  <Route path=":houseId" element={<HouseSearch />}/>
+                </Route>
 
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/" element={<Navigate to="/home" />} />

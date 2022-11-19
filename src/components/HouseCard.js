@@ -7,14 +7,18 @@ import Badge from 'react-bootstrap/Badge';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export function HouseCard() {
-    const houseImage = "https://www.1a-immobilienmarkt.de/daten/153278/28/07/extern_8852807_1_59.jpg";
-    const houseTitle = "Furnished: Very nice furnished house in Garching";
-    const bedrooms = 2;
-    const bathrooms = 1;
-    const address = "Garching bei München, München (Kreis)";
-    const price_qm = 3000;
-    const price_total = 500000;
+export function HouseCard(props) {
+    if (!props.house) {
+        console.log(":(")
+        return <>error</>
+    }
+    const houseImage = process.env.PUBLIC_URL+"/data/house/House Pics/" + props.house.houseId +".png" 
+    const houseTitle = props.house.name;
+    const bedrooms = props.house.bedroom;
+    const bathrooms = props.house.bathroom;
+    const address = props.house.address;
+    const price_qm = Math.round(100 * props.house.price / props.house.size) / 100;
+    const price_total = props.house.price;
 
     /*
     position: absolute;
@@ -23,10 +27,7 @@ export function HouseCard() {
   border: 3px solid #73AD21;
   padding: 10px;*/
     return (
-        <button class="pa-5" style={{
-            minWidth: "100%", backgroundColor: "white", borderWidth: "0px", textAlign: "left",
-            right: "0px", border: "3px solid", padding: "10px"
-        }}>
+        
         <Container class="grid grid-flex">    
             <Row>
                 <Col>
@@ -92,7 +93,6 @@ export function HouseCard() {
                 </Col>                  
             </Row> 
         </Container>
-        </button>
     )
     
     
