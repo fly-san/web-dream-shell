@@ -12,7 +12,7 @@ export function SingleBankOffer(props) {
   // interest rate, repayment rate, monthly payment, expected loan balance?, loan fully repaid
   return (
     <Card>
-      {/* <Card.Img variant="top" />
+      <Card.Img variant="top" />
       <Card.Body>
         <Card.Title>{bankName}</Card.Title>
         <Card.Text>
@@ -28,7 +28,7 @@ export function SingleBankOffer(props) {
       </Card.Body>
       <Card.Footer>
         <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Footer> */}
+      </Card.Footer>
     </Card>
   );
 }
