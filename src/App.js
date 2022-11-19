@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { BankOffers } from "./components/BankOffers";
 import { LinkContainer } from "react-router-bootstrap";
+import { HomePage } from "./components/HomePage";
 
 function App() {
   return (
@@ -36,10 +37,10 @@ function App() {
             </Nav>
           </Col>
         </Row>
-        <Row>
+        <Row style={{ padding: 16 }}>
           <Routes>
             <Route path="/offers" element={<BankOffers />} />
-            <Route path="/home" element={<h2>Home</h2>} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/" element={<Navigate to="/home" />} />
           </Routes>
         </Row>
