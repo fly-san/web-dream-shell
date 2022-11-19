@@ -1,36 +1,43 @@
 import { House } from "react-bootstrap-icons";
 import { HouseCard } from "./HouseCard";
+import { BankOffers } from "./BankOffers";
 
 import { useEffect, useState } from "react";
-
+import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "react-bootstrap"
+import data from "../assets/house.json"
 
 export function HouseSearch() {
     //const [isLoading, setIsLoading] = useState(true);
-    const data = {
-        "houses": [
+    const { houseId } = useParams();
+    const navigate = useNavigate();
 
-            {
-                "houseId": 101,
-                "name": "MAX HOEFE - New building at Superdense 50",
-                "address": "Tuerkenstr. 50 80799 Munich",
-                "zip": "80799",
-                "city": "Munich",
-                "type": "appartment",
-                "room": 4,
-                "bedroom": 2,
-                "bathroom": 1,
-                "size": 44,
-                "tag": ["City Center", "Garden"],
-                "price": 955000
-            }]
+    if (!houseId) {
+        
+        return <div>
+            {data.houses.map((house) => {
+                console.log(house.houseId);
+                return <button class="pa-5" onClick={() => { navigate("/offers/"+house.houseId); console.log(house.houseId) }} style={{
+                    minWidth: "100%", backgroundColor: "white", borderWidth: "0px", textAlign: "left",
+                    right: "0px", border: "3px solid", padding: "10px"
+                }}><HouseCard house={house} /></button>
+            })}
+        </div>
+    }
+
+
+    let house;
+    for (const x of data.houses) {
+        if (x.houseId == houseId) {
+            house = x;
         }
-    
-    return <div>
-        <ul class="mt-5" style={{listStyle : "none"}}>            
-            
-        </ul>
+    }
 
-    </div>
+    return <div>
+        <HouseCard house={house} /> 
+        <hr></hr>
+        <BankOffers/>
+        </div>
 }
 
 export default HouseCard
