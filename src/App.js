@@ -37,7 +37,7 @@ function App() {
             </Nav>
           </Col>
         </Row>
-        <Row style={{ padding: 16 }}>
+        <Row>
           <Routes>
             <Route path="/offers" element={<BankOffers />} />
             <Route path="/home" element={<HomePage />} />

@@ -1,3 +1,9 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 #main-navigation-bar {
   background-color: #282c34;
   align-items: center;
