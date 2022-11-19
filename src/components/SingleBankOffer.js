@@ -11,7 +11,7 @@ export function SingleBankOffer(props) {
     ) / 10;
   const interestRate = props.data.effectiveInterest;
   const monthlyPayment = props.data.monthlyPayment;
-  const loanAmount = props.data.loanAmount
+  const loanAmount = props.data.totalPayment
 
   // this is the best piece of software ever created:
   const bankLogo = "logo_"+bankName.toLowerCase().replaceAll(" ", "_").replaceAll("ü","ue").replaceAll("ö", "oe")+".png";
