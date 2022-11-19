@@ -11,27 +11,19 @@ export function SingleBankOffer(props) {
     ) / 10;
   const interestRate = props.data.effectiveInterest;
   const monthlyPayment = props.data.monthlyPayment;
-  const loanAmount = props.data.loanAmount;
+  const loanAmount = props.data.loanAmount
+
+  // this is the best piece of software ever created:
+  const bankLogo = "logo_"+bankName.toLowerCase().replaceAll(" ", "_").replaceAll("ü","ue").replaceAll("ö", "oe")+".png";
+  const bankLogoUrl = "https://www.interhyp.de/modules/angular-app-shell/dist/assets/images/brands/" + bankLogo;
 
   const interestPlanContext = useContext(InterestPlanContext);
 
   console.log("LOG: " + interestPlanContext.interestPlan);
   return (
-    <button
-      className="shadow pa-5"
-      style={{
-        minWidth: "100%",
-        outlineStyle: "solid",
-        outlineColor: "darkgrey",
-        outlineWidth: "thin",
-        backgroundColor: "white",
-        border: "none",
-        borderRadius: "8px",
-      }}
-    >
-      <h1>
-        <RiBankFill />
-      </h1>
+    <button class="shadow pa-5" style={{ minWidth: "100%",outlineStyle: "solid", outlineColor: "darkgrey",
+    outlineWidth: "thin", backgroundColor: "white", border: "none", borderRadius: "8px"}}>
+      <h1><img  alt={bankName} src={bankLogoUrl}></img></h1>
 
       <h2>{years} years</h2>
       <h5>fixed interest rate</h5>
