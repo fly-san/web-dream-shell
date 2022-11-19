@@ -8,24 +8,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export function HouseCard(props) {
-<<<<<<< HEAD
-  if (!props.house) {
-    console.log(":(");
-    return <>error</>;
-  }
-  const houseImage =
-    process.env.PUBLIC_URL +
-    "/data/house/House Pics/" +
-    props.house.houseId +
-    ".png";
-  const houseTitle = props.house.name;
-  const bedrooms = props.house.bedroom;
-  const bathrooms = props.house.bathroom;
-  const address = props.house.address;
-  const price_qm =
-    Math.round((100 * props.house.price) / props.house.size) / 100;
-  const price_total = props.house.price;
-=======
     if (!props.house) {
         return <>An error occurred!</>
     }
@@ -36,7 +18,6 @@ export function HouseCard(props) {
     const address = props.house.address;
     const price_qm = Math.round(100 * props.house.price / props.house.size) / 100;
     const price_total = props.house.price;
->>>>>>> c8e295befcfdd848d743975ea730b7a531341a59
 
   /*
     position: absolute;
