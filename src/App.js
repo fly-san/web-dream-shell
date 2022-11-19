@@ -36,6 +36,11 @@ function App() {
                   <Nav.Link>Offers</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
+              <Nav.Item>
+                <LinkContainer to="/design">
+                  <Nav.Link>Design</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
             </Nav>
           </Col>
           <Col style={{ padding: 0 }}>
@@ -44,6 +49,7 @@ function App() {
                 <Route path="/offers" element={<BankOffers />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/" element={<Navigate to="/home" />} />
+                <Route path="/design" element={<Design/>} />
               </Routes>
             </Container>
           </Col>
