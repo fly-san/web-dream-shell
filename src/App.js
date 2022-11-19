@@ -7,7 +7,6 @@ import {
   Route,
   Navigate,
 } from "react-router-dom"
-import { PlanSelection } from "./components/PlanSelection";
 
 import { HouseSearch } from "./components/HouseSearch";
 import { LinkContainer } from "react-router-bootstrap";
