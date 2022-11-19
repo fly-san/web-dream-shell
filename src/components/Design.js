@@ -6,9 +6,10 @@ import Figure from 'react-bootstrap/Figure';
 import React, { useState } from 'react';
 import "./Design.css"
 import Modal from 'react-bootstrap/Modal';
+import { motion } from "framer-motion"
 
 export function Design(props) {
-  const [round,setRound]= useState(0);
+  const [round,setRound]= useState(1);
   const folder =["Accessories/","Color/","Furniture/","Hardover/","Style/"];
   const picName = ["A.png","B.png","C.png"];
   const path = "/Design/"
@@ -25,7 +26,6 @@ export function Design(props) {
       index = index.substring(index.length-5,index.length-4);
       const temp = vote.concat(index);
       setVote(temp);
-
       setRound(round+1);
       setFigureUrl1(path+folder[round]+picName[round%3]);
       setFigureUrl2(path+folder[round]+picName[(round+1)%3]);
@@ -49,10 +49,10 @@ export function Design(props) {
       setDreamHouse(key+".png");
       setShow(true);
       
-      // alert("jump to finish with result "+key);
     }
     
   }
+  
 
   return (
     <div>
@@ -65,33 +65,42 @@ export function Design(props) {
         <p></p>
         <Row>
           <Col onClick={() => nextRound(figureUrl1)}>
-          <Figure class="brightness" >
-          <Figure.Image
-            width={180}
-            height={180}
+          <motion.img
+           width={180}
+           whileHover={{ 
+            scale: 1.1,
+            boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
+           }}
+           whileTap={{ 
+            scale: 0.9 }}
             src={process.env.PUBLIC_URL+figureUrl1}
           />
-          </Figure>
           </Col>
         
           <Col onClick={() => nextRound(figureUrl2)}>
-          <Figure class="brightness">
-          <Figure.Image
-            width={180}
-            height={180}
+          <motion.img
+           width={180}
+           whileHover={{ 
+            scale: 1.1,
+            boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
+           }}
+           whileTap={{ 
+            scale: 0.9 }}
             src={process.env.PUBLIC_URL+figureUrl2}
           />
-          </Figure>
           </Col>
 
           <Col onClick={() => nextRound(figureUrl3)}>
-          <Figure class="brightness">
-          <Figure.Image
-            width={180}
-            height={180}
+          <motion.img
+           width={180}
+           whileHover={{ 
+            scale: 1.1,
+            boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
+           }}
+           whileTap={{ 
+            scale: 0.9 }}
             src={process.env.PUBLIC_URL+figureUrl3}
           />
-          </Figure>
           </Col>
         </Row>
       </Container>

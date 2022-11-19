@@ -12,6 +12,7 @@ import { HouseSearch } from "./components/HouseSearch";
 import { LinkContainer } from "react-router-bootstrap";
 import { HomePage } from "./components/HomePage";
 import { Design } from "./components/Design";
+
 function App() {
   return (
     <Router>
