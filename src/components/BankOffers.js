@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { SingleBankOffer } from "./SingleBankOffer";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export function BankOffers() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +53,7 @@ export function BankOffers() {
         },
         calledBy: "zinscheck18",
       },
-      numberOfResults: 5,
+      numberOfResults: 4,
     }),
   };
 
@@ -73,11 +75,15 @@ export function BankOffers() {
   }
 
   return (
-    <Container>
-      {offers.map((item) => (
-        <SingleBankOffer key={offers.indexOf(item)} data={item} />
-      ))}
-    </Container>
+    
+      <Row className="justify-content-md-center">
+        {offers.map((item) => (<Col>
+          <SingleBankOffer key={offers.indexOf(item)} data={item} />          
+        </Col>
+        ))}
+      </Row>
+  
+    
   );
 }
 
