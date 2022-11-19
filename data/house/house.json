@@ -1,0 +1,14 @@
+{
+  "houses":[
+    {
+      "houseId":123,
+      "name": "Small beat balabal",
+      "address": "xxxx str.12",
+      "bedroom": 2,
+      "bathroom":1,
+      "size":70,
+      "tag":["Near Subways","Park"],
+      "price":632100
+    } 
+  ]
+}
