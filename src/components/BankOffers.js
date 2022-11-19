@@ -89,11 +89,22 @@ export function BankOffers(props) {
       {offers.map((item) => (
         <Col>
           <button
+            style={{
+              minWidth: "100%",
+              backgroundColor: "white",
+              borderWidth: "0px",
+              borderRadius: "8px",
+              textAlign: "left",
+              right: "0px",
+              border: "3px solid",
+              padding: "10px",
+              borderColor: "#eee"
+            }}
             onClick={() => {
               interestPlanContext.setInterestPlan(item);
             }}
           >
-            <SingleBankOffer key={offers.indexOf(item)} data={item} />
+          <SingleBankOffer key={offers.indexOf(item)} data={item} />
           </button>
         </Col>
       ))}

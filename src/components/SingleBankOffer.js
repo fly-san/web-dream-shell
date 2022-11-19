@@ -20,9 +20,7 @@ export function SingleBankOffer(props) {
   const interestPlanContext = useContext(InterestPlanContext);
 
   console.log("LOG: " + interestPlanContext.interestPlan);
-  return (
-    <button class="shadow pa-5" style={{ minWidth: "100%",outlineStyle: "solid", outlineColor: "darkgrey",
-    outlineWidth: "thin", backgroundColor: "white", border: "none", borderRadius: "8px"}}>
+  return (<div>
       <h1><img  alt={bankName} src={bankLogoUrl}></img></h1>
 
       <h2>{years} years</h2>
@@ -40,7 +38,7 @@ export function SingleBankOffer(props) {
           <li>Monthly payment: €{monthlyPayment}</li>
         </ul>
       </div>
-    </button>
+  </div>
   );
 }
 

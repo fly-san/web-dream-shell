@@ -37,6 +37,7 @@ export function HouseSearch() {
                 right: "0px",
                 border: "3px solid",
                 padding: "10px",
+                borderColor: "white"
               }}
             >
               <HouseCard house={house} />
