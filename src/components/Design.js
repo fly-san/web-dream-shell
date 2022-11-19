@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Figure from "react-bootstrap/Figure";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import "./Design.css";
 import Modal from "react-bootstrap/Modal";
 import { DesignImageContext } from "../App";
@@ -28,7 +29,14 @@ export function Design(props) {
   const [dreamHouse, setDreamHouse] = useState("A.png");
 
   const designImageContext = useContext(DesignImageContext);
+  const navigate = useNavigate();
 
+  function generatePlan(){
+    setShow(false) 
+    navigate("/plan")
+
+
+  }
   function nextRound(index) {
     if (round < 5) {
       index = index.substring(index.length - 5, index.length - 4);
@@ -56,7 +64,7 @@ export function Design(props) {
       }
       setDreamHouse(key + ".png");
       setShow(true);
-      designImageContext.setDesignImage(dreamHouse);
+      designImageContext.setDesignImage(path+dreamHouse);
       // alert("jump to finish with result "+key);
     }
   }
@@ -118,7 +126,7 @@ export function Design(props) {
             <Figure.Image src={process.env.PUBLIC_URL + path + dreamHouse} />
           </Figure>
           <div class="right">
-            <Button variant="secondary">Generate your plan</Button>
+            <Button variant="secondary" onClick={generatePlan}>Generate your plan</Button>
           </div>
         </Modal.Body>
       </Modal>

@@ -13,6 +13,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { HomePage } from "./components/HomePage";
 import { Design } from "./components/Design";
 import { createContext, useState } from "react";
+import { GeneratePlan } from "./components/Plan";
 
 export const EquityContext = createContext();
 export const HouseContext = createContext();
@@ -63,6 +64,11 @@ function App() {
                           <Nav.Link>Design</Nav.Link>
                         </LinkContainer>
                       </Nav.Item>
+                      <Nav.Item>
+                        <LinkContainer to="/plan" hidden={!designImage}>
+                          <Nav.Link>Plan</Nav.Link>
+                        </LinkContainer>
+                      </Nav.Item>
                     </Nav>
                   </Col>
                   <Col style={{ padding: 0 }}>
@@ -73,6 +79,7 @@ function App() {
                         </Route>
 
                         <Route path="/home" element={<HomePage />} />
+                        <Route path="/plan" element={<GeneratePlan />} />
                         <Route path="/" element={<Navigate to="/home" />} />
                         <Route path="/design" element={<Design />} />
                       </Routes>
