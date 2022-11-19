@@ -1,4 +1,6 @@
-import { RiBankFill } from 'react-icons/ri';
+import { RiBankFill } from "react-icons/ri";
+import { useEffect, useState, useContext } from "react";
+import { InterestPlanContext } from "../App";
 
 export function SingleBankOffer(props) {
   const bankName = props.data.bankDetails.bankName;
@@ -12,8 +14,12 @@ export function SingleBankOffer(props) {
   const loanAmount = props.data.loanAmount
 
   // this is the best piece of software ever created:
-  const bankLogo = "logo_"+bankName.toLowerCase().replaceAll(" ", "_").replaceAll("ü","ue").replaceAll("ö", "oe")+".png"
-  const bankLogoUrl = "https://www.interhyp.de/modules/angular-app-shell/dist/assets/images/brands/" + bankLogo
+  const bankLogo = "logo_"+bankName.toLowerCase().replaceAll(" ", "_").replaceAll("ü","ue").replaceAll("ö", "oe")+".png";
+  const bankLogoUrl = "https://www.interhyp.de/modules/angular-app-shell/dist/assets/images/brands/" + bankLogo;
+
+  const interestPlanContext = useContext(InterestPlanContext);
+
+  console.log("LOG: " + interestPlanContext.interestPlan);
   return (
     <button class="shadow pa-5" style={{ minWidth: "100%",outlineStyle: "solid", outlineColor: "darkgrey",
     outlineWidth: "thin", backgroundColor: "white", border: "none", borderRadius: "8px"}}>
@@ -24,17 +30,17 @@ export function SingleBankOffer(props) {
       <hr></hr>
 
       <div>
-        <h3 class="text-secondary muted">€{loanAmount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h3>
-        <h5 class="muted">{bankName}</h5>
-        <ul style={{listStyle: "none", paddingLeft: "0pt"}}>
+        <h3 className="text-secondary muted">
+          €{loanAmount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+        </h3>
+        <h5 className="muted">{bankName}</h5>
+        <ul style={{ listStyle: "none", paddingLeft: "0pt" }}>
           <li>Interest rate: {interestRate}%</li>
           <li>Years: {years}</li>
           <li>Monthly payment: €{monthlyPayment}</li>
         </ul>
       </div>
-
-    </button>      
-    
+    </button>
   );
 }
 

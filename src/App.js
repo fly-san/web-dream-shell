@@ -6,60 +6,79 @@ import {
   Routes,
   Route,
   Navigate,
-} from "react-router-dom"
+} from "react-router-dom";
 
 import { HouseSearch } from "./components/HouseSearch";
 import { LinkContainer } from "react-router-bootstrap";
 import { HomePage } from "./components/HomePage";
 import { Design } from "./components/Design";
-function App() {
-  return (
-    <Router>
-      <Container fluid>
-        <Row>
-          <Col xs={2} id="main-navigation-bar">
-            <Row>
-              <Snail id="navigation-bar-icon" />
-              <h2>Dream Shell</h2>
-            </Row>
-            <Nav
-              className="flex-column"
-              variant="pills"
-              defaultActiveKey="/home"
-            >
-              <Nav.Item>
-                <LinkContainer to="/home">
-                  <Nav.Link>Home</Nav.Link>
-                </LinkContainer>
-              </Nav.Item>
-              <Nav.Item>
-                <LinkContainer to="/offers">
-                  <Nav.Link>Offers</Nav.Link>
-                </LinkContainer>
-              </Nav.Item>
-              <Nav.Item>
-                <LinkContainer to="/design">
-                  <Nav.Link>Design</Nav.Link>
-                </LinkContainer>
-              </Nav.Item>
-            </Nav>
-          </Col>
-          <Col style={{ padding: 0 }}>
-            <Container fluid id="main-container">
-              <Routes>
-                <Route path="/offers" element={<HouseSearch />}>
-                  <Route path=":houseId" element={<HouseSearch />}/>
-                </Route>
+import { createContext, useState } from "react";
 
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/" element={<Navigate to="/home" />} />
-                <Route path="/design" element={<Design/>} />
-              </Routes>
+export const EquityContext = createContext();
+export const HouseContext = createContext();
+export const InterestPlanContext = createContext();
+
+function App() {
+  const [equity, setEquity] = useState();
+  const [house, setHouse] = useState();
+  const [interestPlan, setInterestPlan] = useState();
+
+  return (
+    <EquityContext.Provider value={{ equity, setEquity }}>
+      <HouseContext.Provider value={{ house, setHouse }}>
+        <InterestPlanContext.Provider value={{ interestPlan, setInterestPlan }}>
+          <Router>
+            <Container fluid>
+              <Row>
+                <Col xs={2} id="main-navigation-bar">
+                  <Row>
+                    <Snail id="navigation-bar-icon" />
+                    <h2>Dream Shell</h2>
+                  </Row>
+                  <Nav
+                    className="flex-column"
+                    variant="pills"
+                    defaultActiveKey="/home"
+                  >
+                    <Nav.Item>
+                      <LinkContainer to="/home">
+                        <Nav.Link>Home</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <LinkContainer to="/offers" hidden={!equity}>
+                        <Nav.Link>Offers</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <LinkContainer
+                        to="/design"
+                        hidden={!house || !interestPlan}
+                      >
+                        <Nav.Link>Design</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                  </Nav>
+                </Col>
+                <Col style={{ padding: 0 }}>
+                  <Container fluid id="main-container">
+                    <Routes>
+                      <Route path="/offers" element={<HouseSearch />}>
+                        <Route path=":houseId" element={<HouseSearch />} />
+                      </Route>
+
+                      <Route path="/home" element={<HomePage />} />
+                      <Route path="/" element={<Navigate to="/home" />} />
+                      <Route path="/design" element={<Design />} />
+                    </Routes>
+                  </Container>
+                </Col>
+              </Row>
             </Container>
-          </Col>
-        </Row>
-      </Container>
-    </Router>
+          </Router>
+        </InterestPlanContext.Provider>
+      </HouseContext.Provider>
+    </EquityContext.Provider>
   );
 }
 

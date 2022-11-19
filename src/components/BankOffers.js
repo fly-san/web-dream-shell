@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Container } from "react-bootstrap";
 import { SingleBankOffer } from "./SingleBankOffer";
-import Row from 'react-bootstrap/Row';
-
-import { MagnifyingGlass } from 'react-loader-spinner'
-import Col from 'react-bootstrap/Col';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { InterestPlanContext } from "../App";
+import { MagnifyingGlass } from "react-loader-spinner";
 
 export function BankOffers(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [offers, setOffers] = useState([]);
+  const interestPlanContext = useContext(InterestPlanContext);
   const MARKET_OVERVIEW_URL =
     "https://www.interhyp.de/customer-generation/interest/marketOverview";
   const JSON_BODY = {
@@ -72,26 +73,31 @@ export function BankOffers(props) {
     }
   }, []);
 
-
-  return isLoading ? <MagnifyingGlass
-    visible={true}
-    height="80"
-    width="80"
-    ariaLabel="MagnifyingGlass-loading"
-    wrapperStyle={{}}
-    wrapperClass="MagnifyingGlass-wrapper"
-    glassColor='#c0efff'
-    color='#4fa94d'
-  /> : (
-    
-      <Row className="justify-content-md-center">
-        {offers.map((item) => (<Col>
-          <SingleBankOffer key={offers.indexOf(item)} data={item} />          
+  return isLoading ? (
+    <MagnifyingGlass
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="MagnifyingGlass-loading"
+      wrapperStyle={{}}
+      wrapperClass="MagnifyingGlass-wrapper"
+      glassColor="#c0efff"
+      color="#4fa94d"
+    />
+  ) : (
+    <Row className="justify-content-md-center">
+      {offers.map((item) => (
+        <Col>
+          <button
+            onClick={() => {
+              interestPlanContext.setInterestPlan(item);
+            }}
+          >
+            <SingleBankOffer key={offers.indexOf(item)} data={item} />
+          </button>
         </Col>
-        ))}
-      </Row>
-  
-    
+      ))}
+    </Row>
   );
 }
 
