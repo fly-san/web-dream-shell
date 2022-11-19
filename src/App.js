@@ -1,5 +1,5 @@
 import "./App.css";
-import { Nav, Row, Col } from "react-bootstrap";
+import { Nav, Row, Col, Container } from "react-bootstrap";
 import { ReactComponent as Snail } from "./assets/snail.svg";
 import {
   BrowserRouter as Router,
@@ -13,41 +13,44 @@ import { HomePage } from "./components/HomePage";
 import { Design } from "./components/Design";
 function App() {
   return (
-    <Design></Design>);
-  //   <Router>
-  //     <Col>
-  //       <Row xs="auto" className="align-items-center" id="main-navigation-bar">
-  //         <Col>
-  //           <Snail id="navigation-bar-icon" />
-  //         </Col>
-  //         <Col>
-  //           <h2>Dream Shell</h2>
-  //         </Col>
-  //         <Col>
-  //           <Nav variant="pills" defaultActiveKey="/home">
-  //             <Nav.Item>
-  //               <LinkContainer to="/home">
-  //                 <Nav.Link>Home</Nav.Link>
-  //               </LinkContainer>
-  //             </Nav.Item>
-  //             <Nav.Item>
-  //               <LinkContainer to="/offers">
-  //                 <Nav.Link>Offers</Nav.Link>
-  //               </LinkContainer>
-  //             </Nav.Item>
-  //           </Nav>
-  //         </Col>
-  //       </Row>
-  //       <Row>
-  //         <Routes>
-  //           <Route path="/offers" element={<BankOffers />} />
-  //           <Route path="/home" element={<HomePage />} />
-  //           <Route path="/" element={<Navigate to="/home" />} />
-  //         </Routes>
-  //       </Row>
-  //     </Col>
-  //   </Router>
-  // );
+    <Router>
+      <Container fluid>
+        <Row>
+          <Col xs={2} id="main-navigation-bar">
+            <Row>
+              <Snail id="navigation-bar-icon" />
+              <h2>Dream Shell</h2>
+            </Row>
+            <Nav
+              className="flex-column"
+              variant="pills"
+              defaultActiveKey="/home"
+            >
+              <Nav.Item>
+                <LinkContainer to="/home">
+                  <Nav.Link>Home</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
+              <Nav.Item>
+                <LinkContainer to="/offers">
+                  <Nav.Link>Offers</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
+            </Nav>
+          </Col>
+          <Col style={{ padding: 0 }}>
+            <Container fluid id="main-container">
+              <Routes>
+                <Route path="/offers" element={<BankOffers />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/" element={<Navigate to="/home" />} />
+              </Routes>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
+    </Router>
+  );
 }
 
 export default App;
