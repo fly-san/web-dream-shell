@@ -23,7 +23,7 @@ export function SingleBankOffer(props) {
   return (
     <button class="shadow pa-5" style={{ minWidth: "100%",outlineStyle: "solid", outlineColor: "darkgrey",
     outlineWidth: "thin", backgroundColor: "white", border: "none", borderRadius: "8px"}}>
-      <h1><img  alt={props.data.bankName} src={bankLogoUrl}></img></h1>
+      <h1><img  alt={bankName} src={bankLogoUrl}></img></h1>
 
       <h2>{years} years</h2>
       <h5>fixed interest rate</h5>
