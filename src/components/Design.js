@@ -5,18 +5,20 @@ import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
 import React, { useState } from 'react';
 import "./Design.css"
+import Modal from 'react-bootstrap/Modal';
 
 export function Design(props) {
   const [round,setRound]= useState(0);
   const folder =["Accessories/","Color/","Furniture/","Hardover/","Style/"];
   const picName = ["A.png","B.png","C.png"];
   const path = "/Design/"
-  // const [figureUrl1, setFigureUrl1] = useState(path+folder[0]+picName[0]);
+  
   const [figureUrl1, setFigureUrl1] = useState("/Design/Accessories/A.png");
   const [figureUrl2, setFigureUrl2] = useState("/Design/Accessories/B.png");
   const [figureUrl3, setFigureUrl3] = useState("/Design/Accessories/C.png");
   const [vote,setVote] = useState([]);
-
+  const [show, setShow] = useState(false);
+  const [dreamHouse,setDreamHouse] = useState("A.png");
 
   function nextRound(index){
     if(round<5){
@@ -44,52 +46,73 @@ export function Design(props) {
             key = vote[k];
           };
       }
-      alert("jump to finish with result "+key);
+      setDreamHouse(key+".png");
+      setShow(true);
+      
+      // alert("jump to finish with result "+key);
     }
     
   }
 
   return (
-    <Container >
-      <h5>What do you want in your dream shell? </h5>
-      <p>
-        <span>Choose the picture that attracts you!</span>
-        <span class="round">Round: {round+1}</span>
-      </p>
-      <p></p>
-      <Row>
-        <Col onClick={() => nextRound(figureUrl1)}>
-        <Figure class="brightness" >
-        <Figure.Image
-          width={180}
-          height={180}
-          src={process.env.PUBLIC_URL+figureUrl1}
-        />
-        </Figure>
-        </Col>
-       
-        <Col onClick={() => nextRound(figureUrl2)}>
-        <Figure class="brightness">
-        <Figure.Image
-          width={180}
-          height={180}
-          src={process.env.PUBLIC_URL+figureUrl2}
-        />
-        </Figure>
-        </Col>
+    <div>
+      <Container >
+        <h5>What do you want in your dream shell? </h5>
+        <p>
+          <span>Choose the picture that attracts you!</span>
+          <span class="right">Round: {round+1}</span>
+        </p>
+        <p></p>
+        <Row>
+          <Col onClick={() => nextRound(figureUrl1)}>
+          <Figure class="brightness" >
+          <Figure.Image
+            width={180}
+            height={180}
+            src={process.env.PUBLIC_URL+figureUrl1}
+          />
+          </Figure>
+          </Col>
+        
+          <Col onClick={() => nextRound(figureUrl2)}>
+          <Figure class="brightness">
+          <Figure.Image
+            width={180}
+            height={180}
+            src={process.env.PUBLIC_URL+figureUrl2}
+          />
+          </Figure>
+          </Col>
 
-        <Col onClick={() => nextRound(figureUrl3)}>
-        <Figure class="brightness">
-        <Figure.Image
-          width={180}
-          height={180}
-          src={process.env.PUBLIC_URL+figureUrl3}
-        />
-        </Figure>
-        </Col>
-      </Row>
-    </Container>
+          <Col onClick={() => nextRound(figureUrl3)}>
+          <Figure class="brightness">
+          <Figure.Image
+            width={180}
+            height={180}
+            src={process.env.PUBLIC_URL+figureUrl3}
+          />
+          </Figure>
+          </Col>
+        </Row>
+      </Container>
+
+      <Modal show={show}  {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+      <Modal.Header >
+        <Modal.Title>Wow! Here is your Dream Shell !!</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Figure>
+          <Figure.Image
+              src={process.env.PUBLIC_URL+path+dreamHouse}/>
+          </Figure>
+          <div class="right"><Button variant="secondary">Generate your plan</Button></div>
+      </Modal.Body>
       
+      </Modal>
+    </div>
     
   );
 }
