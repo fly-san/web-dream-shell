@@ -19,7 +19,7 @@ export function HomePage(props) {
               {/* Location */}
               <Form.Group className="mb-3" controlId="location">
                 <Form.Label>Where?</Form.Label>
-                <Form.Control type="text" placeholder="PLZ or City" />
+                <Form.Control type="text" placeholder="Zip or City" />
               </Form.Group>
 
               {/* Room Numbers */}
@@ -72,10 +72,10 @@ export function HomePage(props) {
           </Col>
           
           <Col sm={4}>
-            <h4>About you?</h4>
+            <h4>Your personal information: </h4>
             <Form>
               {/* ENquity */}
-              <Form.Label>Your Saving:</Form.Label>
+              <Form.Label>Your Savings:</Form.Label>
               <Form.Group className="mb-3" controlId="enquity">
                 <Row>
                   <Col><Form.Control type="text" placeholder=""/></Col>
