@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 export function SingleBankOffer(props) {
   return (
     <Card>
-      <Card.Img variant="top" />
+      {/* <Card.Img variant="top" />
       <Card.Body>
         <Card.Title>{props.data.bankDetails.bankName}</Card.Title>
         <Card.Text>
@@ -13,7 +13,7 @@ export function SingleBankOffer(props) {
       </Card.Body>
       <Card.Footer>
         <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Footer>
+      </Card.Footer> */}
     </Card>
   );
 }

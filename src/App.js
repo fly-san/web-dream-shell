@@ -1,9 +1,13 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { BankOffers } from "./components/BankOffers";
+import { HomePage} from "./components/HomePage";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function App() {
-  return <BankOffers />;
+  return <HomePage/>;
 }
 
 export default App;
