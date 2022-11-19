@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { SingleBankOffer } from "./SingleBankOffer";
 import Row from 'react-bootstrap/Row';
+
+import { MagnifyingGlass } from 'react-loader-spinner'
 import Col from 'react-bootstrap/Col';
 
-export function BankOffers() {
+export function BankOffers(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [offers, setOffers] = useState([]);
   const MARKET_OVERVIEW_URL =
@@ -70,11 +72,17 @@ export function BankOffers() {
     }
   }, []);
 
-  if (isLoading) {
-    return <>Loading...</>;
-  }
 
-  return (
+  return isLoading ? <MagnifyingGlass
+    visible={true}
+    height="80"
+    width="80"
+    ariaLabel="MagnifyingGlass-loading"
+    wrapperStyle={{}}
+    wrapperClass="MagnifyingGlass-wrapper"
+    glassColor='#c0efff'
+    color='#4fa94d'
+  /> : (
     
       <Row className="justify-content-md-center">
         {offers.map((item) => (<Col>

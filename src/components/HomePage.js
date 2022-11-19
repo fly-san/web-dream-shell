@@ -3,8 +3,10 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from "react-router-dom";
 
 export function HomePage(props) {
+  const navigate = useNavigate();
   return (
     <div>
       <Container>
@@ -86,7 +88,7 @@ export function HomePage(props) {
 
         <Row>
           <Col md={{ span: 4, offset: 10 }}>
-            <Button variant="dark" type="submit">
+            <Button variant="dark" type="submit" onClick={() => { navigate("/offers")}}>
               Next Step
             </Button>
           </Col>
