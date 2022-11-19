@@ -1,14 +1,112 @@
 {
   "houses":[
+
     {
-      "houseId":100,
-      "name": "Small beat balabal",
-      "address": "xxxx str.12",
+      "houseId":101,
+      "name": "MAX HOEFE - New building at Superdense 50",
+      "address": "Tuerkenstr. 50 80799 Munich",
+      "zip": "80799",
+      "city": "Munich",
+      "type": "appartment",
+      "room": 4,
       "bedroom": 2,
       "bathroom":1,
-      "size":70,
-      "tag":["Near Subways","Park"],
-      "price":632100
-    } 
+      "size":44,
+      "tag":["City Center","Garden"],
+      "price":955000
+    },
+
+    {
+      "houseId":102,
+      "name": "Best location Schwabing",
+      "address": "Neuschwabing, 80796 Munich",
+      "zip": "80796",
+      "city": "Munich",
+      "type": "house",
+      "room": 5,
+      "bedroom": 3,
+      "bathroom":1,
+      "size":131,
+      "tag":["City Center","Garden"],
+      "price":1800000
+    },
+
+    {
+      "houseId":103,
+      "name": "Newly renovated 2-room apartment with a view and balcony to the quiet inner courtyard in Maxvorstadt",
+      "address": "Neuschwabing, 80798 Munich",
+      "zip": "80798",
+      "city": "Munich",
+      "type": "appartment",
+      "room": 2,
+      "bedroom": 1,
+      "bathroom":1,
+      "size":60,
+      "tag":["City Center","Quiet"],
+      "price": 500000
+    },
+
+    {
+      "houseId":105,
+      "name": "Charming duplex",
+      "address": "Englischer Garten, 80538 Munich",
+      "zip": "80538",
+      "city": "Munich",
+      "type": "appartment",
+      "room": 3,
+      "bedroom": 2,
+      "bathroom":1,
+      "size":80,
+      "tag":["Garden","Quiet"],
+      "price": 1085000
+    },
+
+    {
+      "houseId":106,
+      "name": "MUNICH IG",
+      "address": "Harlaching, 81545 Munich",
+      "zip": "81545",
+      "city": "Munich",
+      "type": "house",
+      "room": 7,
+      "bedroom": 6,
+      "bathroom":2,
+      "size":254,
+      "tag":["Garden"],
+      "price": 1085000
+    },
+
+    {
+      "houseId":107,
+      "name": "Exclusively in a prominent location in Ismaning",
+      "address": "Ismaning, 85737 Munich",
+      "zip": "85737",
+      "city": "Munich",
+      "type": "house",
+      "room": 5,
+      "bedroom": 3,
+      "bathroom":3,
+      "size":155,
+      "tag":["Garden", "Safe"],
+      "price": 2049000
+    },
+
+    {
+      "houseId":108,
+      "name": "Sunny, spacious DHH with a large carport in a wonderful, quiet SW location in Hohenbrunn",
+      "address": "Brunnengasse 40, 85662 Munich",
+      "zip": "85662",
+      "city": "Munich",
+      "type": "house",
+      "room": 5,
+      "bedroom": 3,
+      "bathroom":52,
+      "size":145,
+      "tag":["Quiet", "Safe"],
+      "price": 910000
+    }
+
   ]
 }
+
+
