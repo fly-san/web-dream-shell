@@ -1,16 +1,8 @@
-import './App.css';
-import Button from 'react-bootstrap/Button';
+import "./App.css";
+import Button from "react-bootstrap/Button";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Button variant="primary">
-          hello
-        </Button>
-      </header>
-    </div>
-  );
+  return <Button variant="primary">hello</Button>;
 }
 
 export default App;
