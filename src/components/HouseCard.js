@@ -9,8 +9,7 @@ import Col from 'react-bootstrap/Col';
 
 export function HouseCard(props) {
     if (!props.house) {
-        console.log(":(")
-        return <>error</>
+        return <>An error occurred!</>
     }
     const houseImage = process.env.PUBLIC_URL+"/data/house/House Pics/" + props.house.houseId +".png" 
     const houseTitle = props.house.name;
@@ -49,16 +48,16 @@ export function HouseCard(props) {
                                             <Col>
                                                 <BiBed />
 
-                                                <p >
+                                            <h4 >
                                                     {bedrooms}
-                                                </p>
+                                            </h4>
 
                                             </Col>
                                             <Col>
                                                 <FaShower className=".box" />
-                                                <p >
+                                                <h4>
                                                     {bathrooms}
-                                                </p>
+                                            </h4>
                                             </Col>
                                             <Col id="pricing">
                                                 <ul style={{ listStyleType: "none" }}>
@@ -84,9 +83,11 @@ export function HouseCard(props) {
                         </Row>
                         <Row>
                             <Container>
-
-                            <Col><h4><Badge bg="secondary">Park</Badge></h4></Col>
-                            <Col><h4><Badge bg="secondary">Public transport</Badge></h4></Col>
+                            {
+                                props.house.tag.map((tag) => {
+                                    return <Col><h4><Badge bg="secondary">{tag}</Badge></h4></Col>
+                                } )
+                            }
                             </Container>
                         </Row>
 

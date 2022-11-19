@@ -100,7 +100,7 @@
       "type": "house",
       "room": 5,
       "bedroom": 3,
-      "bathroom":52,
+      "bathroom":42,
       "size":145,
       "tag":["Quiet", "Safe"],
       "price": 910000
