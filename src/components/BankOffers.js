@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Container } from "react-bootstrap";
 import { SingleBankOffer } from "./SingleBankOffer";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { InterestPlanContext } from "../App";
 
 export function BankOffers() {
   const [isLoading, setIsLoading] = useState(true);
   const [offers, setOffers] = useState([]);
+  const interestPlanContext = useContext(InterestPlanContext);
   const MARKET_OVERVIEW_URL =
     "https://www.interhyp.de/customer-generation/interest/marketOverview";
   const JSON_BODY = {
@@ -75,15 +77,19 @@ export function BankOffers() {
   }
 
   return (
-    
-      <Row className="justify-content-md-center">
-        {offers.map((item) => (<Col>
-          <SingleBankOffer key={offers.indexOf(item)} data={item} />          
+    <Row className="justify-content-md-center">
+      {offers.map((item) => (
+        <Col>
+          <button
+            onClick={() => {
+              interestPlanContext.setInterestPlan(item);
+            }}
+          >
+            <SingleBankOffer key={offers.indexOf(item)} data={item} />
+          </button>
         </Col>
-        ))}
-      </Row>
-  
-    
+      ))}
+    </Row>
   );
 }
 

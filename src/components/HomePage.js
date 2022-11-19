@@ -1,10 +1,14 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { useContext } from "react";
+import { EquityContext } from "../App";
 
 export function HomePage(props) {
+  const equityContext = useContext(EquityContext);
+
   return (
     <div>
       <Container>
@@ -13,7 +17,6 @@ export function HomePage(props) {
           <Col sm={8}>
             <h4>Tell me more about your dream shell:</h4>
             <Form>
-  
               {/* Location */}
               <Form.Group className="mb-3" controlId="location">
                 <Form.Label>Where?</Form.Label>
@@ -23,7 +26,7 @@ export function HomePage(props) {
               {/* Room Numbers */}
               <Form.Label>Room Numbers:</Form.Label>
               <Row>
-                <Col >
+                <Col>
                   {/* Min Number */}
                   <Form.Group className="mb-3" controlId="roomNumbersMin">
                     <Form.Control type="text" placeholder="Min" />
@@ -37,13 +40,17 @@ export function HomePage(props) {
                   </Form.Group>
                 </Col>
               </Row>
-                 
+
               {/* Size */}
               <Form.Label>Size:</Form.Label>
               <Form.Group className="mb-3" controlId="roomSize">
                 <Row>
-                  <Col><Form.Control type="text" placeholder=""/></Col>
-                  <Col>m<sup>2</sup></Col>
+                  <Col>
+                    <Form.Control type="text" placeholder="" />
+                  </Col>
+                  <Col>
+                    m<sup>2</sup>
+                  </Col>
                 </Row>
               </Form.Group>
 
@@ -52,11 +59,13 @@ export function HomePage(props) {
               <Form.Group className="mb-3" controlId="prise">
                 <Row>
                   <Col>About</Col>
-                  <Col><Form.Control type="text" placeholder=""/></Col>
+                  <Col>
+                    <Form.Control type="text" placeholder="" />
+                  </Col>
                   <Col>Euro</Col>
                 </Row>
               </Form.Group>
-        
+
               {/* Housing Type */}
               <Form.Label>Housing Type:</Form.Label>
               <Form.Group className="mb-3" controlId="houseCheckbox">
@@ -65,18 +74,23 @@ export function HomePage(props) {
               <Form.Group className="mb-3" controlId="apartmentCheckbox">
                 <Form.Check type="checkbox" label="Apartment" />
               </Form.Group>
-
             </Form>
           </Col>
-          
+
           <Col sm={4}>
             <h4>About you?</h4>
             <Form>
               {/* ENquity */}
               <Form.Label>Your Saving:</Form.Label>
-              <Form.Group className="mb-3" controlId="enquity">
+              <Form.Group className="mb-3" controlId="equity">
                 <Row>
-                  <Col><Form.Control type="text" placeholder=""/></Col>
+                  <Col>
+                    <Form.Control
+                      type="text"
+                      placeholder=""
+                      onChange={(value) => equityContext.setEquity(value)}
+                    />
+                  </Col>
                   <Col>Euro</Col>
                 </Row>
               </Form.Group>
@@ -92,8 +106,7 @@ export function HomePage(props) {
           </Col>
         </Row>
       </Container>
-    
-  </div>
+    </div>
   );
 }
 
