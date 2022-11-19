@@ -6,8 +6,10 @@ import {
   Routes,
   Route,
   Navigate,
-} from "react-router-dom";
-import { BankOffers } from "./components/BankOffers";
+} from "react-router-dom"
+import { PlanSelection } from "./components/PlanSelection";
+
+import { HouseSearch } from "./components/HouseSearch";
 import { LinkContainer } from "react-router-bootstrap";
 import { HomePage } from "./components/HomePage";
 import { Design } from "./components/Design";
@@ -41,7 +43,9 @@ function App() {
           <Col style={{ padding: 0 }}>
             <Container fluid id="main-container">
               <Routes>
-                <Route path="/offers" element={<BankOffers />} />
+                <Route path="/offers" element={<HouseSearch />} />
+                <Route path="/plans" element={<PlanSelection />} />
+
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/" element={<Navigate to="/home" />} />
               </Routes>
