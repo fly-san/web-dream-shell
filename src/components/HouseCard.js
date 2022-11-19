@@ -8,16 +8,22 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export function HouseCard(props) {
-    if (!props.house) {
-        return <>An error occurred!</>
-    }
-    const houseImage = process.env.PUBLIC_URL+"/data/house/House Pics/" + props.house.houseId +".png" 
-    const houseTitle = props.house.name;
-    const bedrooms = props.house.bedroom;
-    const bathrooms = props.house.bathroom;
-    const address = props.house.address;
-    const price_qm = Math.round(100 * props.house.price / props.house.size) / 100;
-    const price_total = props.house.price;
+  if (!props.house) {
+    console.log(":(");
+    return <>error</>;
+  }
+  const houseImage =
+    process.env.PUBLIC_URL +
+    "/data/house/House Pics/" +
+    props.house.houseId +
+    ".png";
+  const houseTitle = props.house.name;
+  const bedrooms = props.house.bedroom;
+  const bathrooms = props.house.bathroom;
+  const address = props.house.address;
+  const price_qm =
+    Math.round((100 * props.house.price) / props.house.size) / 100;
+  const price_total = props.house.price;
 
   /*
     position: absolute;
@@ -48,55 +54,58 @@ export function HouseCard(props) {
                     <Col>
                       <BiBed />
 
-                                            <h4 >
-                                                    {bedrooms}
-                                            </h4>
-
-                                            </Col>
-                                            <Col>
-                                                <FaShower className=".box" />
-                                                <h4>
-                                                    {bathrooms}
-                                            </h4>
-                                            </Col>
-                                            <Col id="pricing">
-                                                <ul style={{ listStyleType: "none" }}>
-                                                    <li id="house-price-per-qm">
-                                                        <p>€{price_qm.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} / qm²</p>
-                                                    </li>
-                                                    <li id="house-price-total">
-                                                        <p>
-                                                            <FaDollarSign />
-                                                            <h3 class="primary">€{price_total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h3>
-                                                        </p>
-                                                    </li>
-                                                </ul>
-
-                                            </Col>
-
-
-                                        </Row>
-                                    </li>
-                                </ul>
-                            </Col>
-
-                        </Row>
-                        <Row>
-                            <Container>
-                            {
-                                props.house.tag.map((tag) => {
-                                    return <Col><h4><Badge bg="secondary">{tag}</Badge></h4></Col>
-                                } )
-                            }
-                            </Container>
-                        </Row>
-
-                </Col>                  
-            </Row> 
-        </Container>
-    )
-    
-    
+                      <h4>{bedrooms}</h4>
+                    </Col>
+                    <Col>
+                      <FaShower className=".box" />
+                      <h4>{bathrooms}</h4>
+                    </Col>
+                    <Col id="pricing">
+                      <ul style={{ listStyleType: "none" }}>
+                        <li id="house-price-per-qm">
+                          <p>
+                            €
+                            {price_qm
+                              .toFixed(2)
+                              .replace(/\d(?=(\d{3})+\.)/g, "$&,")}{" "}
+                            / qm²
+                          </p>
+                        </li>
+                        <li id="house-price-total">
+                          <p>
+                            <FaDollarSign />
+                            <h3 class="primary">
+                              €
+                              {price_total
+                                .toFixed(2)
+                                .replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+                            </h3>
+                          </p>
+                        </li>
+                      </ul>
+                    </Col>
+                  </Row>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+          <Row>
+            <Container>
+              {props.house.tag.map((tag) => {
+                return (
+                  <Col>
+                    <h4>
+                      <Badge bg="secondary">{tag}</Badge>
+                    </h4>
+                  </Col>
+                );
+              })}
+            </Container>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default HouseCard;
