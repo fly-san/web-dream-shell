@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, ProgressBar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { SingleBankOffer } from "./SingleBankOffer";
 
 export function BankOffers() {
@@ -73,11 +73,11 @@ export function BankOffers() {
   }
 
   return (
-    <>
+    <Container>
       {offers.map((item) => (
         <SingleBankOffer key={offers.indexOf(item)} data={item} />
       ))}
-    </>
+    </Container>
   );
 }
 
