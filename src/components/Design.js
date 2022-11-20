@@ -11,6 +11,7 @@ import { DesignImageContext,HouseContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import {HouseCard} from  "./HouseCard"
 
+
 export function Design(props) {
   const houseContext = useContext(HouseContext);
   const [round,setRound]= useState(1);
@@ -28,6 +29,7 @@ export function Design(props) {
   const designImageContext = useContext(DesignImageContext);
   const navigate = useNavigate();
 
+
   function generatePlan(){
     setShow(false) 
     navigate("/plan")
@@ -39,7 +41,6 @@ export function Design(props) {
       index = index.substring(index.length - 5, index.length - 4);
       const temp = vote.concat(index);
       setVote(temp);
-
       setRound(round+1);
       setFigureUrl1(path + folder[round] + picName[round % 3]);
       setFigureUrl2(path + folder[round] + picName[(round + 1) % 3]);
@@ -72,16 +73,20 @@ export function Design(props) {
       <HouseCard house={houseContext.house} />
       <hr/>
       <Container>
-        <h5>What do you want in your dream shell? </h5>
+        <h5 class="whatTitle">What do you want in your dream shell? </h5>
+        <p></p>
         <p>
-          <span>Choose the picture that attracts you!</span>
-          <span class="right">Round: {round}</span>
+          <span class="choose">Choose the picture that attracts you!</span>
+          <span class="round ">Round: {round}</span>
         </p>
+
+        <p></p>
         <p></p>
         <Row>
           <Col onClick={() => nextRound(figureUrl1)}>
           <motion.img
-           width={180}
+           width="70%"
+           style={{"border-radius": "5px"}}
            whileHover={{ 
             scale: 1.1,
             boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
@@ -91,10 +96,11 @@ export function Design(props) {
             src={process.env.PUBLIC_URL+figureUrl1}
           />
           </Col>
-
+            
           <Col onClick={() => nextRound(figureUrl2)}>
           <motion.img
-           width={180}
+           width="70%"
+           style={{"border-radius": "5px"}}
            whileHover={{ 
             scale: 1.1,
             boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
@@ -107,7 +113,8 @@ export function Design(props) {
 
           <Col onClick={() => nextRound(figureUrl3)}>
           <motion.img
-           width={180}
+           width="70%"
+           style={{"border-radius": "5px"}}
            whileHover={{ 
             scale: 1.1,
             boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",

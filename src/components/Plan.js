@@ -3,8 +3,8 @@ import Figure from "react-bootstrap/Figure";
 import { HouseCard } from "./HouseCard";
 import { SingleBankOffer } from "./SingleBankOffer";
 import { HouseContext, InterestPlanContext, DesignImageContext } from "../App";
-import { Row, Col } from "react-bootstrap";
-
+import { Row, Col, Button } from "react-bootstrap";
+import "./Design.css"
 export function GeneratePlan() {
   const houseContext = useContext(HouseContext);
   const interestPlanContext = useContext(InterestPlanContext);
@@ -31,6 +31,17 @@ export function GeneratePlan() {
         </Col>
         <Col />
       </Row>
+      <Button
+        class="round"
+        variant="dark"
+        type="submit"
+        onClick={() => {
+          window.open('https://www.interhyp.de/ratgeber/');
+        }}
+        style={{float:"right", margin:"2em"}}
+      >
+        Consult the experts from Interhyp
+      </Button>
     </div>
   );
 }

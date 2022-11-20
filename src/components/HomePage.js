@@ -133,8 +133,7 @@ export function HomePage(props) {
         
       </Row>
    
-      <p></p>
-      <p></p>
+      
       <Button
         variant="light"
         type="submit"

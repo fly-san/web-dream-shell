@@ -1,5 +1,17 @@
-.right{
-    float:right
+.round{
+    float:right;
+    margin-right: 4em;
+    background-color: #333 ;
+    color:white;
+    font-family: tahoma;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    border:5px solid #333 ;
+    border-radius: 5px;
 }
 
 .roomDetail{
@@ -9,6 +21,31 @@
 
 .detailText{
     color: rgba(111, 114, 114, 0.784);
+}
+
+.whatTitle{
+    color: #200;
+    font-family: tahoma;
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 1.5;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 550px;
+}
+.choose{
+    color: #333;
+    font-family: tahoma;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 550px;
+
 }
 
 
