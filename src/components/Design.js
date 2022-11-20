@@ -1,26 +1,23 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Figure from "react-bootstrap/Figure";
-import React, { useContext, useState} from "react";
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Figure from 'react-bootstrap/Figure';
+import React, { useContext, useState } from 'react';
+import "./Design.css"
+import Modal from 'react-bootstrap/Modal';
+import { motion } from "framer-motion"
+import { DesignImageContext,HouseContext } from "../App";
 import { useNavigate } from "react-router-dom";
-import "./Design.css";
-import Modal from "react-bootstrap/Modal";
-import { DesignImageContext } from "../App";
+import {HouseCard} from  "./HouseCard"
 
 export function Design(props) {
-  const [round, setRound] = useState(0);
-  const folder = [
-    "Accessories/",
-    "Color/",
-    "Furniture/",
-    "Hardover/",
-    "Style/",
-  ];
-  const picName = ["A.png", "B.png", "C.png"];
-  const path = "/Design/";
-
+  const houseContext = useContext(HouseContext);
+  const [round,setRound]= useState(1);
+  const folder =["Accessories/","Color/","Furniture/","Hardover/","Style/"];
+  const picName = ["A.png","B.png","C.png"];
+  const path = "/Design/"
+  
   const [figureUrl1, setFigureUrl1] = useState("/Design/Accessories/A.png");
   const [figureUrl2, setFigureUrl2] = useState("/Design/Accessories/B.png");
   const [figureUrl3, setFigureUrl3] = useState("/Design/Accessories/C.png");
@@ -43,7 +40,7 @@ export function Design(props) {
       const temp = vote.concat(index);
       setVote(temp);
 
-      setRound(round + 1);
+      setRound(round+1);
       setFigureUrl1(path + folder[round] + picName[round % 3]);
       setFigureUrl2(path + folder[round] + picName[(round + 1) % 3]);
       setFigureUrl3(path + folder[round] + picName[(round + 2) % 3]);
@@ -63,50 +60,62 @@ export function Design(props) {
         }
       }
       setDreamHouse(key + ".png");
-      setShow(true);
       designImageContext.setDesignImage(path+dreamHouse);
-      // alert("jump to finish with result "+key);
+      setShow(true);
+      
     }
   }
+  
 
   return (
     <div>
+      <HouseCard house={houseContext.house} />
+      <hr/>
       <Container>
         <h5>What do you want in your dream shell? </h5>
         <p>
           <span>Choose the picture that attracts you!</span>
-          <span class="right">Round: {round + 1}</span>
+          <span class="right">Round: {round}</span>
         </p>
         <p></p>
         <Row>
           <Col onClick={() => nextRound(figureUrl1)}>
-            <Figure class="brightness">
-              <Figure.Image
-                width={180}
-                height={180}
-                src={process.env.PUBLIC_URL + figureUrl1}
-              />
-            </Figure>
+          <motion.img
+           width={180}
+           whileHover={{ 
+            scale: 1.1,
+            boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
+           }}
+           whileTap={{ 
+            scale: 0.9 }}
+            src={process.env.PUBLIC_URL+figureUrl1}
+          />
           </Col>
 
           <Col onClick={() => nextRound(figureUrl2)}>
-            <Figure class="brightness">
-              <Figure.Image
-                width={180}
-                height={180}
-                src={process.env.PUBLIC_URL + figureUrl2}
-              />
-            </Figure>
+          <motion.img
+           width={180}
+           whileHover={{ 
+            scale: 1.1,
+            boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
+           }}
+           whileTap={{ 
+            scale: 0.9 }}
+            src={process.env.PUBLIC_URL+figureUrl2}
+          />
           </Col>
 
           <Col onClick={() => nextRound(figureUrl3)}>
-            <Figure class="brightness">
-              <Figure.Image
-                width={180}
-                height={180}
-                src={process.env.PUBLIC_URL + figureUrl3}
-              />
-            </Figure>
+          <motion.img
+           width={180}
+           whileHover={{ 
+            scale: 1.1,
+            boxShadow: "10px 10px 0 rgba(247,220,111,0.667)",
+           }}
+           whileTap={{ 
+            scale: 0.9 }}
+            src={process.env.PUBLIC_URL+figureUrl3}
+          />
           </Col>
         </Row>
       </Container>

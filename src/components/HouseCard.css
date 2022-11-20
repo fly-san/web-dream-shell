@@ -1,0 +1,13 @@
+.right{
+    float:right
+}
+  
+.unitPrice{
+    font-size: 23px;
+    color: brown;
+    font-weight:bold;
+}
+
+.tag{
+    margin-left: 2em;
+}

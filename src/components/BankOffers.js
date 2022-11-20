@@ -4,8 +4,9 @@ import { SingleBankOffer } from "./SingleBankOffer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { InterestPlanContext } from "../App";
-import { MagnifyingGlass } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+
+import { MagnifyingGlass } from "react-loader-spinner";
 
 export function BankOffers(props) {
   const navigate = useNavigate();
@@ -14,52 +15,61 @@ export function BankOffers(props) {
   const interestPlanContext = useContext(InterestPlanContext);
   const MARKET_OVERVIEW_URL =
     "https://www.interhyp.de/customer-generation/interest/marketOverview";
+
+  const broker_percentage = 3.57;
+  const price = 600000;
+
+  const broker_costs = (price * broker_percentage) / 100;
+  const equity = 100000;
+  const amount = price - equity;
+  const json = {
+    caseDto: {
+      estate: {
+        zip: "80331",
+        city: "Muenchen",
+        federalState: "BY",
+      },
+      mainApplicant: {
+        city: "",
+        federalState: "",
+        netSalary: 0,
+      },
+      capital: {
+        equityCash: equity,
+      },
+      venture: {
+        reason: "KaufBest",
+        priceBuilding: price,
+        percentageBroker: broker_percentage,
+        percentageNotary: 0,
+        percentageTax: 0,
+        shownFunding: {
+          equityCash: equity,
+          loans: [
+            {
+              amount: amount,
+              maturity: 15,
+              fullRepayment: false,
+              amortisation: 2,
+            },
+          ],
+        },
+        brokerCosts: broker_costs,
+        notaryCosts: 0,
+        transferTax: 0,
+      },
+      calledBy: "zinscheck18",
+    },
+    numberOfResults: 3,
+  };
+
   const JSON_BODY = {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      caseDto: {
-        estate: {
-          zip: "80331",
-          city: "",
-          federalState: "",
-        },
-        mainApplicant: {
-          city: "",
-          federalState: "",
-          netSalary: 0,
-        },
-        capital: {
-          equityCash: 200000,
-        },
-        venture: {
-          reason: "KaufBest",
-          priceBuilding: 600000,
-          percentageBroker: 3.57,
-          percentageNotary: 0,
-          percentageTax: 0,
-          shownFunding: {
-            equityCash: 200000,
-            loans: [
-              {
-                amount: 421420,
-                maturity: 15,
-                fullRepayment: false,
-                amortisation: 2,
-              },
-            ],
-          },
-          brokerCosts: 21419.999999999996,
-          notaryCosts: 0,
-          transferTax: 0,
-        },
-        calledBy: "zinscheck18",
-      },
-      numberOfResults: 3,
-    }),
+    body: JSON.stringify(json),
   };
 
   useEffect(() => {

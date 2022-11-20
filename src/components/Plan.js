@@ -15,18 +15,20 @@ export function GeneratePlan() {
       <HouseCard house={houseContext.house} />
       <hr></hr>
 
-      <Row className="justify-content-md-center">
-        <Col className="justify-content-md-center">
+      <Row>
+        <Col />
+        <Col md={4}>
           <SingleBankOffer data={interestPlanContext.interestPlan} />
         </Col>
-
-        <Col>
+        <Col />
+        <Col md={5}>
           <Figure>
             <Figure.Image
               src={process.env.PUBLIC_URL + designImageContext.designImage}
             />
           </Figure>
         </Col>
+        <Col />
       </Row>
     </div>
   );
