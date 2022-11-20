@@ -5,8 +5,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { InterestPlanContext } from "../App";
 import { MagnifyingGlass } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 export function BankOffers(props) {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [offers, setOffers] = useState([]);
   const interestPlanContext = useContext(InterestPlanContext);
@@ -56,7 +58,7 @@ export function BankOffers(props) {
         },
         calledBy: "zinscheck18",
       },
-      numberOfResults: 4,
+      numberOfResults: 3,
     }),
   };
 
@@ -66,7 +68,7 @@ export function BankOffers(props) {
         .then((response) => response.json())
         .then((data) => setOffers(data));
     } catch (error) {
-      console.log(error);
+      console.log("An error ocurred while fetching offers: " + error);
       // No error handling
     } finally {
       setIsLoading(false);
@@ -85,30 +87,27 @@ export function BankOffers(props) {
       color="#4fa94d"
     />
   ) : (
-    <Row className="justify-content-md-center">
-      {offers.map((item) => (
-        <Col>
-          <button
-            style={{
-              minWidth: "100%",
-              backgroundColor: "white",
-              borderWidth: "0px",
-              borderRadius: "8px",
-              textAlign: "left",
-              right: "0px",
-              border: "3px solid",
-              padding: "10px",
-              borderColor: "#eee"
-            }}
-            onClick={() => {
-              interestPlanContext.setInterestPlan(item);
-            }}
-          >
-          <SingleBankOffer key={offers.indexOf(item)} data={item} />
-          </button>
-        </Col>
-      ))}
-    </Row>
+    <Container>
+      <Row className="justify-content-md-center">
+        <h4 style={{ textAlign: "center" }}>Select your Loan Offer:</h4>
+      </Row>
+      <hr />
+      <Row className="justify-content-md-center">
+        {offers.map((item) => (
+          <Col>
+            <SingleBankOffer
+              key={offers.indexOf(item)}
+              bestDeal={offers.indexOf(item) === 0}
+              data={item}
+              onClick={() => {
+                interestPlanContext.setInterestPlan(item);
+                navigate("/design");
+              }}
+            />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

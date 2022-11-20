@@ -20,14 +20,12 @@ export function HouseSearch() {
     return (
       <div>
         {data.houses.map((house) => {
-          console.log(house.houseId);
           return (
             <button
               className="pa-5"
               onClick={() => {
                 houseContext.setHouse(house);
                 navigate("/offers/" + house.houseId);
-                console.log(house.houseId);
               }}
               style={{
                 minWidth: "100%",
@@ -37,7 +35,7 @@ export function HouseSearch() {
                 right: "0px",
                 border: "3px solid",
                 padding: "10px",
-                borderColor: "white"
+                borderColor: "white",
               }}
             >
               <HouseCard house={house} />

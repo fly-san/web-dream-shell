@@ -87,6 +87,7 @@ export function HomePage(props) {
                 <Row>
                   <Col>
                     <Form.Control
+                      required={true}
                       type="text"
                       placeholder=""
                       onChange={(value) => equityContext.setEquity(value)}
@@ -107,6 +108,7 @@ export function HomePage(props) {
               onClick={() => {
                 navigate("/offers");
               }}
+              disabled={!equityContext.equity}
             >
               Next Step
             </Button>
