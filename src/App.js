@@ -37,9 +37,12 @@ function App() {
               <Container fluid>
                 <Row>
                   <Col xs={2} id="main-navigation-bar">
-                    <Row>
+                    <Row style={{ marginBottom: "20px" }}>
                       <Snail id="navigation-bar-icon" />
                       <h2>Dream Shell</h2>
+                      <p style={{ fontSize: "small" }}>
+                        East or West - Home is the best!
+                      </p>
                     </Row>
                     <Nav
                       className="flex-column"

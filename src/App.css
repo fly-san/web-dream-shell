@@ -9,6 +9,11 @@ body {
   color: white;
   height: 100vh !important;
 }
+#navigation-bar-icon {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
 
 #main-container {
   height: 100vh;

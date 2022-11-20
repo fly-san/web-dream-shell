@@ -9,19 +9,19 @@ import { useNavigate } from "react-router-dom";
 import { MagnifyingGlass } from "react-loader-spinner";
 
 export function BankOffers(props) {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [offers, setOffers] = useState([]);
   const interestPlanContext = useContext(InterestPlanContext);
   const MARKET_OVERVIEW_URL =
     "https://www.interhyp.de/customer-generation/interest/marketOverview";
-  const navigate = useNavigate()
 
   const broker_percentage = 3.57;
   const price = 600000;
 
-  const broker_costs = price * broker_percentage / 100
+  const broker_costs = (price * broker_percentage) / 100;
   const equity = 100000;
-  const amount = price - equity
+  const amount = price - equity;
   const json = {
     caseDto: {
       estate: {
@@ -60,8 +60,9 @@ export function BankOffers(props) {
       },
       calledBy: "zinscheck18",
     },
-    numberOfResults: 4,
-  }
+    numberOfResults: 3,
+  };
+
   const JSON_BODY = {
     method: "POST",
     headers: {
@@ -77,7 +78,7 @@ export function BankOffers(props) {
         .then((response) => response.json())
         .then((data) => setOffers(data));
     } catch (error) {
-      console.log(error);
+      console.log("An error ocurred while fetching offers: " + error);
       // No error handling
     } finally {
       setIsLoading(false);
@@ -96,31 +97,28 @@ export function BankOffers(props) {
       color="#4fa94d"
     />
   ) : (
-      <Row className="px-4 justify-content-md-center">
-      {offers.map((item) => (
-        <Col>
-          <button
-            style={{
-              minWidth: "100%",
-              backgroundColor: "white",
-              borderWidth: "0px",
-              borderRadius: "8px",
-              textAlign: "left",
-              right: "0px",
-              border: "3px solid",
-              padding: "10px",
-              borderColor: "#eee"
-            }}
-            onClick={() => {
-              interestPlanContext.setInterestPlan(item);
-              navigate("/design");
-            }}
-          >
-          <SingleBankOffer key={offers.indexOf(item)} data={item} />
-          </button>
-        </Col>
-      ))}
-    </Row>
+    <Container style={{ padding: "20px" }}>
+      <Row className="justify-content-md-center">
+        <h4 style={{ textAlign: "center", paddingBottom: "20px" }}>
+          Select your Loan Offer:
+        </h4>
+      </Row>
+      <Row className="justify-content-md-center">
+        {offers.map((item) => (
+          <Col>
+            <SingleBankOffer
+              key={offers.indexOf(item)}
+              bestDeal={offers.indexOf(item) === 0}
+              data={item}
+              onClick={() => {
+                interestPlanContext.setInterestPlan(item);
+                navigate("/design");
+              }}
+            />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

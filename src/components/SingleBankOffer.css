@@ -1,0 +1,15 @@
+.bank-offer-button:hover:not(.hover-disable) {
+  background-color: lightblue;
+}
+
+.bank-offer-button.hover-disable {
+  cursor: "arrow" !important;
+}
+
+.floating-best-deal {
+  position: absolute;
+  font-size: large;
+  font-weight: bold;
+  transform: rotate(-20deg) translateX(-5px);
+  color: green;
+}
