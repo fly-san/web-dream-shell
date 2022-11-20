@@ -1,12 +1,12 @@
 import { Button, Container } from "react-bootstrap";
 // import { BiBed } from "react-icons/bi";
-import { FaShower,FaBed, FaFlipboard} from "react-icons/fa";
+import { FaShower, FaBed, FaFlipboard } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import Badge from "react-bootstrap/Badge";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "./HouseCard.css"
-import Stack from 'react-bootstrap/Stack';
+import "./HouseCard.css";
+import Stack from "react-bootstrap/Stack";
 
 export function HouseCard(props) {
   if (!props.house) {
@@ -34,22 +34,42 @@ export function HouseCard(props) {
   border: 3px solid #73AD21;
   padding: 10px;*/
   return (
-    <Container className="grid grid-flex">
+    <Container
+      className="grid grid-flex"
+      style={{
+        border: "solid",
+        borderColor: "#eee",
+        padding: "12px",
+        borderRadius: 30,
+      }}
+    >
       <Row>
-        <Col  md="auto">
-          <img style={{ maxWidth: "400px" }} alt="" src={houseImage}></img>
+        <Col md="auto">
+          <img
+            style={{
+              objectFit: "cover",
+              borderRadius: 30,
+              width: "20vw",
+              height: "30vh",
+            }}
+            alt=""
+            src={houseImage}
+          ></img>
         </Col>
         <Col lg="7" id="house-description">
           <Row>
             <h3>{houseTitle}</h3>
           </Row>
           <Row>
-            <p class="detailText"><FiMapPin/>{address}</p>
+            <p class="detailText">
+              <FiMapPin />
+              {address}
+            </p>
             <Stack direction="horizontal" gap={2}>
               <Row className="ms-auto">
-                <Col> 
-                    <FaBed size={20}/>
-                    <div class="roomDetail">{bedrooms}</div>
+                <Col>
+                  <FaBed size={20} />
+                  <div class="roomDetail">{bedrooms}</div>
                 </Col>
                 <Col>
                   <FaShower size={20} />
@@ -61,11 +81,9 @@ export function HouseCard(props) {
                 </Col>
               </Row>
               <div className="vr tag" />
-              <Row  className="ms-auto">
+              <Row className="ms-auto">
                 <p class="unitPrice">
-                  €{price_qm
-                    .toFixed(2)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")}/m²
+                  €{price_qm.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}/m²
                 </p>
                 <p class="roomDetail">
                   €{price_total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
@@ -78,7 +96,9 @@ export function HouseCard(props) {
             <Col>
               {props.house.tag.map((tag) => {
                 return (
-                    <Badge bg="light" text="dark" class="tag" >{tag}</Badge>
+                  <Badge bg="light" text="dark" class="tag">
+                    {tag}
+                  </Badge>
                 );
               })}
             </Col>

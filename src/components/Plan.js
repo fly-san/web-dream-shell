@@ -13,7 +13,8 @@ export function GeneratePlan() {
   return (
     <div>
       <HouseCard house={houseContext.house} />
-      <hr></hr>
+      <br />
+      <br />
 
       <Row>
         <Col />

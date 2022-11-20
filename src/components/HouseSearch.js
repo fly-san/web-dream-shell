@@ -56,7 +56,6 @@ export function HouseSearch() {
   return (
     <div>
       <HouseCard house={house} />
-      <hr></hr>
       <BankOffers />
     </div>
   );

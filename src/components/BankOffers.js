@@ -97,11 +97,12 @@ export function BankOffers(props) {
       color="#4fa94d"
     />
   ) : (
-    <Container>
+    <Container style={{ padding: "20px" }}>
       <Row className="justify-content-md-center">
-        <h4 style={{ textAlign: "center" }}>Select your Loan Offer:</h4>
+        <h4 style={{ textAlign: "center", paddingBottom: "20px" }}>
+          Select your Loan Offer:
+        </h4>
       </Row>
-      <hr />
       <Row className="justify-content-md-center">
         {offers.map((item) => (
           <Col>

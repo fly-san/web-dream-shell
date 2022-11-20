@@ -35,7 +35,7 @@ export function SingleBankOffer(props) {
         borderRadius: "8px",
         textAlign: "center",
         border: "3px solid",
-        padding: "10px",
+        padding: "16px",
         marginBottom: "20px",
         borderColor: props.bestDeal ? "green" : "#eee",
         transitionDuration: "0.75s",
@@ -69,17 +69,19 @@ export function SingleBankOffer(props) {
       </Row>
       <hr></hr>
       <h5>{years} Years</h5>
-      <hr />
 
       {!props.onClick ? (
         <></>
       ) : (
-        <Row md="auto" className="justify-content-md-center">
-          <Col style={{ paddingRight: 0 }}>
-            <ChevronRight>Select</ChevronRight>
-          </Col>
-          <Col style={{ paddingLeft: 2 }}>{"Select"}</Col>
-        </Row>
+        <>
+          <hr />
+          <Row md="auto" className="justify-content-md-center">
+            <Col style={{ paddingRight: 0 }}>
+              <ChevronRight>Select</ChevronRight>
+            </Col>
+            <Col style={{ paddingLeft: 2 }}>{"Select"}</Col>
+          </Row>
+        </>
       )}
     </button>
   );
