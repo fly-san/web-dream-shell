@@ -47,7 +47,7 @@ function App() {
                     <Nav
                       className="flex-column"
                       variant="pills"
-                      defaultActiveKey="/home"
+                      activeKey={window.location.pathname.split("/")[1]}
                     >
                       <Nav.Item>
                         <LinkContainer to="/home">
@@ -77,14 +77,13 @@ function App() {
                   <Col style={{ padding: 0 }}>
                     <Container fluid id="main-container">
                       <Routes>
+                        <Route path="/home" element={<HomePage />} />
                         <Route path="/offers" element={<HouseSearch />}>
                           <Route path=":houseId" element={<HouseSearch />} />
                         </Route>
-
-                        <Route path="/home" element={<HomePage />} />
                         <Route path="/plan" element={<GeneratePlan />} />
-                        <Route path="/" element={<Navigate to="/home" />} />
                         <Route path="/design" element={<Design />} />
+                        <Route path="/" element={<Navigate to="/home" />} />
                       </Routes>
                     </Container>
                   </Col>
