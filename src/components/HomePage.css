@@ -1,0 +1,14 @@
+.slogen{
+    color: white;
+    font-size: 80px;
+}
+
+.particles-bg-canvas-self{
+    background: rgb(41, 48, 58);
+    color: white;
+}
+
+.card-header{
+    font-size: 20px;
+    font-weight: bold;
+}
