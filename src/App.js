@@ -34,61 +34,55 @@ function App() {
             value={{ interestPlan, setInterestPlan }}
           >
             <Router>
-              <Container fluid>
-                <Row>
-                  <Col xs={2} id="main-navigation-bar">
-                    <Row style={{ marginBottom: "20px" }}>
-                      <Snail id="navigation-bar-icon" />
-                      <h2>Dream Shell</h2>
-                      <p style={{ fontSize: "small" }}>
-                        East or West - Home is the best!
-                      </p>
-                    </Row>
-                    <Nav
-                      className="flex-column"
-                      variant="pills"
-                      activeKey={window.location.pathname.split("/")[1]}
-                    >
-                      <Nav.Item>
-                        <LinkContainer to="/home">
-                          <Nav.Link>Home</Nav.Link>
-                        </LinkContainer>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <LinkContainer to="/offers" hidden={!equity}>
-                          <Nav.Link>Offers</Nav.Link>
-                        </LinkContainer>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <LinkContainer
-                          to="/design"
-                          hidden={!house || !interestPlan}
-                        >
-                          <Nav.Link>Design</Nav.Link>
-                        </LinkContainer>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <LinkContainer to="/plan" hidden={!designImage}>
-                          <Nav.Link>Plan</Nav.Link>
-                        </LinkContainer>
-                      </Nav.Item>
-                    </Nav>
-                  </Col>
-                  <Col style={{ padding: 0 }}>
-                    <Container fluid id="main-container">
-                      <Routes>
-                        <Route path="/home" element={<HomePage />} />
-                        <Route path="/offers" element={<HouseSearch />}>
-                          <Route path=":houseId" element={<HouseSearch />} />
-                        </Route>
-                        <Route path="/plan" element={<GeneratePlan />} />
-                        <Route path="/design" element={<Design />} />
-                        <Route path="/" element={<Navigate to="/home" />} />
-                      </Routes>
-                    </Container>
-                  </Col>
-                </Row>
-              </Container>
+              <div id="root-container">
+                <div id="main-navigation-bar">
+                  <Snail id="navigation-bar-icon" />
+                  <h2>Dream Shell</h2>
+                  <p style={{ fontSize: "small" }}>
+                    East or West - Home is the best!
+                  </p>
+                  <Nav
+                    className="flex-column"
+                    variant="pills"
+                    activeKey={window.location.pathname.split("/")[1]}
+                  >
+                    <Nav.Item>
+                      <LinkContainer to="/home">
+                        <Nav.Link>Home</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <LinkContainer to="/offers" hidden={!equity}>
+                        <Nav.Link>Offers</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <LinkContainer
+                        to="/design"
+                        hidden={!house || !interestPlan}
+                      >
+                        <Nav.Link>Design</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <LinkContainer to="/plan" hidden={!designImage}>
+                        <Nav.Link>Plan</Nav.Link>
+                      </LinkContainer>
+                    </Nav.Item>
+                  </Nav>
+                </div>
+                <div id="content-container">
+                  <Routes>
+                    <Route path="/home" element={<HomePage />} />
+                    <Route path="/offers" element={<HouseSearch />}>
+                      <Route path=":houseId" element={<HouseSearch />} />
+                    </Route>
+                    <Route path="/plan" element={<GeneratePlan />} />
+                    <Route path="/design" element={<Design />} />
+                    <Route path="/" element={<Navigate to="/home" />} />
+                  </Routes>
+                </div>
+              </div>
             </Router>
           </InterestPlanContext.Provider>
         </HouseContext.Provider>
