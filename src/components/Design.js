@@ -7,10 +7,12 @@ import React, { useContext, useState } from 'react';
 import "./Design.css"
 import Modal from 'react-bootstrap/Modal';
 import { motion } from "framer-motion"
-import { DesignImageContext } from "../App";
+import { DesignImageContext,HouseContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import {HouseCard} from  "./HouseCard"
 
 export function Design(props) {
+  const houseContext = useContext(HouseContext);
   const [round,setRound]= useState(1);
   const folder =["Accessories/","Color/","Furniture/","Hardover/","Style/"];
   const picName = ["A.png","B.png","C.png"];
@@ -38,7 +40,7 @@ export function Design(props) {
       const temp = vote.concat(index);
       setVote(temp);
 
-      setRound(round + 1);
+      setRound(round+1);
       setFigureUrl1(path + folder[round] + picName[round % 3]);
       setFigureUrl2(path + folder[round] + picName[(round + 1) % 3]);
       setFigureUrl3(path + folder[round] + picName[(round + 2) % 3]);
@@ -67,11 +69,13 @@ export function Design(props) {
 
   return (
     <div>
+      <HouseCard house={houseContext.house} />
+      <hr/>
       <Container>
         <h5>What do you want in your dream shell? </h5>
         <p>
           <span>Choose the picture that attracts you!</span>
-          <span class="right">Round: {round + 1}</span>
+          <span class="right">Round: {round}</span>
         </p>
         <p></p>
         <Row>
